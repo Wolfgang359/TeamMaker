@@ -1,10 +1,8 @@
 const inquirer = require('inquirer');
 const open = require('open');
 const fs = require('fs');
-const employee = require('./classes/Employee');
-const manager = require('./classes/Manager');
-const engineer = require('./classes/Engineer');
-const intern = require('./classes/Intern');
+const Employee = require('./classes/Employee');
+const Intern = require('./classes/Intern');
 const Engineer = require('./classes/Engineer');
 const Manager = require('./classes/Manager');
 
@@ -81,14 +79,14 @@ class Team {
                     }
                 ])
                 .then((response) => {
-                    const newMember = new Manager(member.name, member.id, member.email, response.InputGitHub);
+                    const newMember = new Engineer(member.name, member.id, member.email, response.InputGitHub);
                     return newMember;
                 });
 
                 break;
 
             case 'Employee':
-                const newMember = new employee(member.name, member.id, member.email);
+                const newMember = new Employee(member.name, member.id, member.email);
                 return newMember;
                 break;
 
@@ -98,11 +96,11 @@ class Team {
                     {
                         type: 'input',
                         name: 'InputSchool',
-                        message: 'What school does intern attend?'
+                        message: 'What school does the intern attend?'
                     }
                 ])
                 .then((response) => {
-                    const newMember = new Manager(member.name, member.id, member.email, response.school);
+                    const newMember = new Intern(member.name, member.id, member.email, response.school);
                     return newMember;
                 });
                 break;

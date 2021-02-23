@@ -1,5 +1,5 @@
-const Team = require('./newPage');
-const newPage = require('./newPage');
+const Team = require('./newTeam');
+const Team = require('./newTeam');
 
 const page = new Team();
 
